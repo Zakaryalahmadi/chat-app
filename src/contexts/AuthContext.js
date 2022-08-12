@@ -1,0 +1,32 @@
+import { useState, createContext, useContext,useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import {auth} from '../firebase'
+
+const AuthContext = createContext();
+
+export const useAuth = () => useContext(AuthContext);
+
+export const AuthProvider = ({ children}) =>{
+    const [loading, setLoading] = useState(true);
+
+    const [user, setUser] = useState(null);
+
+    const history = useNavigate()
+
+    useEffect(() => {
+        auth.onAuthStateChanged((user)=>{
+            setUser(user);
+            setLoading(false);
+            
+            if(user){history('/chats')} //si on a l'utilisateur on accede au chat
+        })
+    },[user,history])
+
+    const value = {user};
+
+    return (
+        <AuthContext.Provider value={value}>
+            {!loading && children}
+        </AuthContext.Provider>
+    )
+}
