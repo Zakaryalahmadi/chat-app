@@ -1,6 +1,8 @@
 
 
-![acceuil](https://user-images.githubusercontent.com/80518856/184405662-07c3cf37-1b08-4687-af29-8afb2ff2ee53.PNG)
+```Voici à quoi ressemble la page d'acceuil
+
+![acceuil](https://user-images.githubusercontent.com/80518856/184405662-07c3cf37-1b08-4687-af29-8afb2ff2ee53.PNG)```
 
 
 # Getting Started with Create React App
